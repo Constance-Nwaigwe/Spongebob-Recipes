@@ -1,0 +1,19 @@
+{
+  "usersdata": [
+    {
+      "email": "SpongebobSquarepants@krustykrab.com",
+      "username": "SpongebobSquarepants",
+      "password": "amlh4km6sj10"
+    },
+    {
+      "email": "EugeneKrabs@krustykrab.com",
+      "username": "EugeneKrabs",
+      "password": "akljs5sxjjd69"
+    },
+    {
+      "email": "SquidwardTentacles@krustykrab.com",
+      "username": "SquidwardTentacles",
+      "password": "lea5imd5k28"
+    }
+  ]
+}
