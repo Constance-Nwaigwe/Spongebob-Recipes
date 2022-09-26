@@ -12,17 +12,17 @@ const seed = async () => {
 
   // connect data path
   const userspath = path.join(__dirname, "data/users.json");
-  const recipespath = path.join(__dirname, "data/recipe.json");
+  const recipespath = path.join(__dirname, "data/recipes.json");
   const secretRecipespath = path.join(__dirname, "data/secretRecipes.json");
 
   // buffer for path
   const usersbuffer = await fs.readFile(userspath);
-  const recipebuffer = await fs.readFile(recipespath);
+  const recipesbuffer = await fs.readFile(recipespath);
   const secretRecipesbuffer = await fs.readFile(secretRecipespath);
 
   // parse data
   const { usersdata } = JSON.parse(String(usersbuffer));
-  const { recipesdata } = JSON.parse(String(recipebuffer));
+  const { recipesdata } = JSON.parse(String(recipesbuffer));
   const { secretRecipesdata } = JSON.parse(String(secretRecipesbuffer));
 
   // map data to create table

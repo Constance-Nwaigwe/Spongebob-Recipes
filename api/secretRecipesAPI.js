@@ -1,16 +1,16 @@
 const express = require("express");
 const secretRecipesRouter = express.Router();
-const SecretRecipes = require("../classes/userclass");
+const { SecretRecipes } = require("../classes/secretRecipes");
 
-secretRecipesRouter.get("/secretRecipes", async (req, res) => {
+secretRecipesRouter.get("/", async (req, res) => {
   const secretRecipes = await SecretRecipes.findAll();
   res.json({ secretRecipes });
 });
-secretRecipesRouter.get("/secretRecipes/:id", async (req, res) => {
+secretRecipesRouter.get("/:id", async (req, res) => {
   const secretRecipe = await SecretRecipes.findByPk(req.params.id);
   res.json({ secretRecipe });
 });
-secretRecipesRouter.post("/secretRecipes", async (req, res) => {
+secretRecipesRouter.post("/", async (req, res) => {
   const name = req.body.name;
   const ingredients = req.body.ingredients;
   const newSecretRecipe = await SecretRecipes.create({
@@ -19,15 +19,15 @@ secretRecipesRouter.post("/secretRecipes", async (req, res) => {
   });
   res.json({ newSecretRecipe });
 });
-secretRecipesRouter.put("/secretRecipes/:id", async (req, res) => {
+secretRecipesRouter.put("/:id", async (req, res) => {
   const secretRecipe = await SecretRecipes.update(req.body, {
     where: { id: req.params.id },
   });
   res.json({ secretRecipe });
 });
-secretRecipesRouter.delete("/secretRecipes/:id", async (req, res) => {
+secretRecipesRouter.delete("/:id", async (req, res) => {
   await SecretRecipes.destroy({ where: { id: req.params.id } });
   res.json({ message: "User deleted" });
 });
 
-module.exports = { secretRecipesRouter };
+module.exports = secretRecipesRouter;
