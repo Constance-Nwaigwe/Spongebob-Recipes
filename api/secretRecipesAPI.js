@@ -1,6 +1,9 @@
 const express = require("express");
 const secretRecipesRouter = express.Router();
 const { SecretRecipes } = require("../classes/secretRecipes");
+const jwtCheck = require("./jwkCheck");
+
+secretRecipesRouter.use(jwtCheck);
 
 secretRecipesRouter.get("/", async (req, res) => {
   const secretRecipes = await SecretRecipes.findAll();
