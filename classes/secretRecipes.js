@@ -5,7 +5,7 @@ class SecretRecipes extends Model {}
 SecretRecipes.init(
   {
     name: DataTypes.STRING,
-    ingredients: DataTypes.ARRAY,
+    ingredients: DataTypes.STRING,
   },
   {
     sequelize: db,
